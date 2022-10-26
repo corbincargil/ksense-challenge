@@ -10,9 +10,33 @@ const postContainer = document.createElement("div");
 root.appendChild(tableContainer);
 // console.log(root);
 
-fetch("https://jsonplaceholder.typicode.com/users/")
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+//getUsers function
+async function getUsers() {
+  try {
+    const results = await fetch(
+      "https://jsonplaceholder.typicode.com/users/"
+    ).then((response) => response.json());
+    console.log(results);
+    return results;
+  } catch (error) {
+    console.log(error);
+  }
+}
+//const users = getUsers();
+
+//getPosts function
+async function getPosts() {
+  try {
+    const results = await fetch(
+      "https://jsonplaceholder.typicode.com/posts/"
+    ).then((response) => response.json());
+    console.log(results);
+    return results;
+  } catch (error) {
+    console.log(error);
+  }
+}
+const posts = getPosts();
 
 //Create table
 const createTable = (container) => {
