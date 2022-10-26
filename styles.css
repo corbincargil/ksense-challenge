@@ -17,3 +17,16 @@
   padding: 0.5em 15px;
   color: rgb(255, 0, 144);
 }
+
+#post-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  background-color: rgba(251, 124, 255, 0.8);
+}
+
+#post-list {
+  padding: 0px;
+}

@@ -2,12 +2,29 @@
 //Submitted by: Corbin Cargil
 //10/26/2022
 
+import getUsers from "./getUsers.js";
+import getPosts from "./getPosts.js";
+
 //DOM nodes
 const root = document.getElementById("root");
 const tableContainer = document.createElement("div");
-tableContainer.setAttribute("id", "table-container");
 const postContainer = document.createElement("div");
+const postHeading = document.createElement("h2");
+const postList = document.createElement("ol");
+const postPreview = document.createElement("div");
+tableContainer.setAttribute("id", "table-container");
+postContainer.setAttribute("id", "post-container");
+postHeading.setAttribute("id", "post-heading");
+postList.setAttribute("id", "post-list");
+postPreview.setAttribute("id", "post-preview");
+postHeading.textContent = "Post Container";
+postList.textContent = "Post titles here...";
+postPreview.textContent = "Post content here...";
+postContainer.appendChild(postHeading);
+postContainer.appendChild(postList);
+postContainer.appendChild(postPreview);
 root.appendChild(tableContainer);
+root.appendChild(postContainer);
 // console.log(root);
 
 //Create table
@@ -26,18 +43,6 @@ const createTable = (container) => {
 };
 
 createTable(tableContainer);
-
-//getUsers function
-async function getUsers() {
-  try {
-    const results = await fetch(
-      "https://jsonplaceholder.typicode.com/users/"
-    ).then((response) => response.json());
-    return results;
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 //render users in table
 const renderTableData = async () => {
@@ -62,17 +67,3 @@ const renderTableData = async () => {
   });
 };
 renderTableData();
-
-//getPosts function
-async function getPosts() {
-  try {
-    const results = await fetch(
-      "https://jsonplaceholder.typicode.com/posts/"
-    ).then((response) => response.json());
-    console.log(results);
-    return results;
-  } catch (error) {
-    console.log(error);
-  }
-}
-// const posts = getPosts();
