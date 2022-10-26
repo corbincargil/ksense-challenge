@@ -3,9 +3,12 @@
   display: flex;
   justify-content: space-evenly;
   background-color: rgba(0, 200, 200, 0.8);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 #user-table {
+  margin: 20px;
   width: 100%;
   border-collapse: collapse;
   background-color: rgba(0, 255, 255, 0.8);
@@ -18,18 +21,55 @@
   color: rgb(255, 0, 144);
 }
 
+.list-item:hover {
+  background-color: rgb(191, 191, 191);
+}
+
 #post-container {
+  margin: 20px;
   padding: 10px;
-  width: 400px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
   background-color: rgba(251, 124, 255, 0.8);
+  border-radius: 10px;
+}
+
+#post-heading-container {
+  padding: 10px;
+  background-color: rgba(252, 151, 28, 0.8);
+  align-self: center;
+  border-radius: 10px;
 }
 
 #post-list {
   padding: 30px;
   width: 300px;
   background-color: rgb(99, 249, 79, 0.8);
+  border-radius: 10px;
+}
+
+#post-list li:hover {
+  border: solid 2px red;
+}
+
+.selected {
+  color: black;
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.unselected {
+  color: rgb(74, 74, 74);
+}
+
+#post-preview {
+  margin: 5px;
+  padding: 10px 20px;
+  width: 400px;
+  background-color: rgba(249, 79, 79, 0.8);
+  align-items: center;
+  border-radius: 10px;
 }
