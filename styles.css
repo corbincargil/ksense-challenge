@@ -20,6 +20,7 @@
 
 #post-container {
   padding: 10px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -28,5 +29,7 @@
 }
 
 #post-list {
-  padding: 0px;
+  padding: 30px;
+  width: 300px;
+  background-color: rgb(99, 249, 79, 0.8);
 }

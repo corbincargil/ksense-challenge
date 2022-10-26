@@ -1,10 +1,10 @@
 //getPosts function
-async function getPosts() {
+async function getPosts(id) {
   try {
-    const results = await fetch(
-      "https://jsonplaceholder.typicode.com/posts/"
+    const posts = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${id}/posts`
     ).then((response) => response.json());
-    console.log(results);
+    const results = posts.slice(0, 5); //only show 5 posts
     return results;
   } catch (error) {
     console.log(error);

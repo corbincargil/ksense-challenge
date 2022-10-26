@@ -17,7 +17,7 @@ postContainer.setAttribute("id", "post-container");
 postHeading.setAttribute("id", "post-heading");
 postList.setAttribute("id", "post-list");
 postPreview.setAttribute("id", "post-preview");
-postHeading.textContent = "Post Container";
+postHeading.textContent = "Click a user in the table";
 postList.textContent = "Post titles here...";
 postPreview.textContent = "Post content here...";
 postContainer.appendChild(postHeading);
@@ -25,10 +25,9 @@ postContainer.appendChild(postList);
 postContainer.appendChild(postPreview);
 root.appendChild(tableContainer);
 root.appendChild(postContainer);
-// console.log(root);
 
 //Create table
-const createTable = (container) => {
+((container) => {
   let table = document.createElement("table");
   table.setAttribute("id", "user-table");
   const headerData = ["ID", "USERNAME", "COMPANY"];
@@ -40,11 +39,9 @@ const createTable = (container) => {
   });
   table.appendChild(row);
   container.appendChild(table);
-};
+})(tableContainer);
 
-createTable(tableContainer);
-
-//render users in table
+//Render users in table
 const renderTableData = async () => {
   const table = document.getElementById("user-table");
   const users = await getUsers();
@@ -60,10 +57,32 @@ const renderTableData = async () => {
     tr.appendChild(username);
     tr.appendChild(company);
     tr.addEventListener("click", () => {
-      console.log(`You clicked ${user.username}`);
+      clearPostList();
+      renderPosts(user.id);
+      postHeading.textContent = `${user.username}'s Posts:`;
     });
     tr.classList.add("list-item");
     table.appendChild(tr);
   });
 };
+
+//Render posts
+async function renderPosts(id) {
+  const posts = await getPosts(id);
+  const list = document.getElementById("post-list");
+  posts.forEach((post) => {
+    let li = document.createElement("li");
+    li.textContent = `${post.title}`;
+    li.addEventListener("click", () => {
+      console.log(`you clicked the post`);
+    });
+    list.appendChild(li);
+  });
+}
+
+//Clean list of posts
+const clearPostList = () => {
+  postList.innerHTML = "";
+};
+
 renderTableData();
