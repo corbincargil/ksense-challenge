@@ -1,0 +1,19 @@
+#root {
+  padding: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgba(0, 200, 200, 0.8);
+}
+
+#user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(0, 255, 255, 0.8);
+  padding: 30px;
+  border: solid 4px rgba(245, 77, 77, 0.8);
+}
+
+#user-table td {
+  padding: 0.5em 15px;
+  color: rgb(255, 0, 144);
+}
